@@ -65,7 +65,7 @@ Object.keys(alphabets).forEach(name => {
   var alphabet = alphabets[name],
     translation = aurebesh(alphabet);
 
-  output.innerHTML += `<div><h3>${name.toUpperCase()}</h3>${translation}</div>`;
+  output.innerHTML += `<article><h3>${name.toUpperCase()}</h3><div class="alphabet">// ${alphabet}</div><div>${translation}<div></article>`;
 });
 
 
