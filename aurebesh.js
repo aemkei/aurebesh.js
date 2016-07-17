@@ -40,10 +40,7 @@ function aurebesh(alphabet) {
     });
   }
 
-  for (var input, i = 0; i < 9; i++) {
-    input = String.fromCharCode(65 + i);
-    code = code.split(input).join(alphabet[i] || "XXX");
-  }
+  code = code.replace(/[A-Z]/g, char => alphabet[char.charCodeAt(0) - 65]);
 
   return code;
 }
