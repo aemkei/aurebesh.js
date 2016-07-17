@@ -27,7 +27,6 @@
       }
 
       #output article {
-        font-family: Arial;
         width: 15em;
         word-wrap: break-word;
         display: inline-block;
@@ -39,6 +38,20 @@
       #output article .alphabet {
         color: #666;
         margin-bottom: 1em;
+      }
+
+      #output article#input {
+        display: block;
+      }
+
+      #output article #your-input.alphabet {
+        color: #0cf;
+        border: 1px solid #0cf;
+        padding: 4px 8px;
+      }
+
+      #your-input:before {
+        display: inline;
       }
     </style>
   </head>
@@ -53,7 +66,14 @@
       May the force be with you!
       </p>
 
-      <div id="output"></div>
+      <div id="output">
+        <article id="input">
+          <h3>Your Alphabet</h3>
+          <div id="your-input" class="alphabet">YOUR_ALPHABET</div>
+          <div id="your-output">↑ Edit "YOUR_ALPHABET" above.</div>
+        </article>
+      </div>
+
     </div>
     <script src="aurebesh.js"></script>
   </body>

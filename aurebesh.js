@@ -58,11 +58,12 @@ var alphabets = {
   'arabic': 'غػؼؽؾؿـفق',
   'ᐳㅣᐸ': 'ᐳᐸㅣ',
   'o': 'òŏôǒöőõȯōȍ',
+  'kannada': 'ಠಉನಊಝಏೡಖತ',
   'symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
   'abc': 'ABCDEFGHI',
   'emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
   'slash': '〳',
-  'test invalid chars': '01'
+  'invalid identifier': '€0/-'
 }
 
 var output = document.getElementById('output');
@@ -72,7 +73,22 @@ Object.keys(alphabets).forEach(name => {
   var alphabet = alphabets[name],
     translation = aurebesh(alphabet);
 
-  output.innerHTML += `<article><h3>${name.toUpperCase()}</h3><div class="alphabet">// ${alphabet}</div><div>${translation}<div></article>`;
+  output.innerHTML += `<article><h3>${name.toUpperCase()}</h3><div class="alphabet">// ${alphabet}</div><div>${translation}</div></article>`;
 });
 
+var input = document.getElementById('your-input'),
+  output = document.getElementById('your-output');
 
+input.contentEditable = true;
+input.addEventListener('keyup', function() {
+  var value = this.textContent;
+  output.innerHTML = aurebesh(value);
+  document.location.hash = escape(value);
+});
+
+var hash = document.location.hash;
+if (hash) {
+  var value = unescape(hash.slice(1));
+  input.textContent = value;
+  output.innerHTML = aurebesh(value);
+}
