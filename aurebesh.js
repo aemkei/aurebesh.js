@@ -6,7 +6,9 @@ function aurebesh(alphabet) {
   }
 
   if (typeof alphabet == 'string') {
-    alphabet = alphabet.split('');
+
+    var separator = alphabet.indexOf(',') < 0 ? '' : ',';
+    alphabet = alphabet.split(separator);
   }
 
   var invalid = alphabet.filter(char => {
