@@ -23,6 +23,10 @@ function aurebesh(alphabet) {
     return `Invalid identifier name: ${invalid}. <br>Read more here: https://mathiasbynens.be/notes/javascript-identifiers`
   }
 
+  alphabet = alphabet.filter((char, index) => {
+    return index <= alphabet.indexOf(char);
+  });
+
 
   while (alphabet.length < 9) {
     var length = alphabet.length;
