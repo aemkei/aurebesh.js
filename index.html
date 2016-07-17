@@ -46,6 +46,63 @@
         </p>
       </div>
 
+      <hr>
+
+      <h2>How it Works</h2>
+
+      <p>
+        Here is a formatted version of the ABC. Read it carefully and you will get the idea.
+      </p>
+
+      <pre>
+A = ''              // empty string
+B = !A + A          // "true"
+C = !B + A          // "false"
+D = A + {}          // "[object Object]"
+E = B[A++]          // "t" = "true"[0]
+F = B[G = A]        // "r" = "true"[1]
+H = ++G + A         // 2, 3
+I = D[G + H]        // "c"
+
+B[
+  I +=              // "<b>c</b>"
+    D[A] +          // "<b>o</b>" = "object"[0]
+    (B.C+D)[A] +    // "<b>n</b>" = "undefined"[1]
+    C[H] +          // "<b>s</b>" = "false"[2]
+    E +             // "<b>t</b>"
+    F +             // "<b>r</b>"
+    B[G] +          // "<b>u</b>" = "true"[2]
+    I +             // "<b>c</b>" = "[object Object]"[5]
+    E +             // "<b>t</b>"
+    D[A] +          // "<b>o</b>" = "object"[0]
+    F               // "<b>r</b>"
+][
+  I                 // "<b>constructor</b>"
+](
+  C[A] +            //  "<b>a</b>"
+  C[G] +            //  "<b>l</b>"
+  B[H] +            //  "<b>e</b>"
+  F +               //  "<b>r</b>"
+  E +               //  "<b>t</b>"
+  "(A)"             // "<b>(1)</b>"
+)()
+      </pre>
+
+      <hr>
+
+<pre id="logo">
+      <b>#</b>
+      <b>#</b>
+     <b>##</b>
+      <b>#</b> #
+   ## <b>#</b> #
+ ## # <b>#</b> # #
+# # # <b>#</b> ##
+# # # <b>#</b> # #
+# # # <b>#</b> #  #
+</pre>
+      20XX - Martin Kleppe
+
     </div>
     <script src="aurebesh.js"></script>
 
