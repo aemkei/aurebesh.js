@@ -20,7 +20,7 @@ function aurebesh(alphabet) {
   });
 
   if (invalid.length) {
-    return `Invalid variable names: ${invalid}.`
+    return `Invalid identifier name: ${invalid}. <br>Read more here: https://mathiasbynens.be/notes/javascript-identifiers`
   }
 
 
