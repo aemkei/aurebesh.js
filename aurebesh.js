@@ -46,24 +46,27 @@ function aurebesh(alphabet) {
 }
 
 var alphabets = {
-  'aurebesh': 'ロコYㅣᗐΞΔᐳㅡ',
-  'katakana': 'アウセヌネハヘホミ',
-  'greek': 'πβεγμτφθλ',
-  'hangul': 'ᅺᅻᅼᅽᅾᅿᆀᆁᆂᆃ',
-  'thai': 'กวอซฝคงญฒ',
-  'cyrillic': 'БДИЖЩЗЛЮФ',
-  'gurmukhi': 'ਗਨਹਤਕੲਲੜਵ',
-  'hebrew': 'אבגדהוחטכ',
-  'javanese': 'ꦊꦄꦌꦍꦎꦏꦐꦑꦒ',
-  'arabic': 'غػؼؽؾؿـفق',
+  'Aurebesh': 'ロコYㅣᗐΞΔᐳㅡ',
+  'Katakana': 'アウセヌネハヘホミ',
+  'Greek': 'πβεγμτφθλ',
+  'Hangul': 'ᅺᅻᅼᅽᅾᅿᆀᆁᆂᆃ',
+  'Thai': 'กวอซฝคงญฒ',
+  'Cyrillic': 'БДИЖЩЗЛЮФ',
+  'Gurmukhi': 'ਗਨਹਤਕੲਲੜਵ',
+  'Hebrew': 'אבגדהוחטכ',
+  'Javanese': 'ꦊꦄꦌꦍꦎꦏꦐꦑꦒ',
+  'Diactric': 'ò́̂,o̖̔̕,o̞̟̠,ò́̂̃,o̖̗̔̕,o̡̞̟̠,o̡̢̞̟̠̣,o̖̗̘̙̔̕,ò́̂̃̄',
+  'Arabic': 'غػؼؽؾؿـفق',
   'ᐳㅣᐸ': 'ᐳᐸㅣ',
-  'o': 'òŏôǒöőõȯōȍ',
-  'kannada': 'ಠಉನಊಝಏೡಖತ',
-  'symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
-  'abc': 'ABCDEFGHI',
-  'emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
-  'slash': '〳',
-  'invalid identifier': '€0/-'
+  'ooo': 'òŏôǒöőõȯōȍ',
+  'SPACE': "_",
+  'XXX': 'xX',
+  'Kannada': 'ಠಉನಊಝಏೡಖತ',
+  'Symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
+  'Kanji': '㒓㒲㒳㒴㒵㒶㒷㒸㒺',
+  'ABC': 'ABCDEFGHI',
+  'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
+  'Slash': '〳'
 }
 
 var output = document.getElementById('output');
