@@ -59,6 +59,7 @@ var alphabets = {
   'Arabic': 'غػؼؽؾؿـفق',
   'ᐳㅣᐸ': 'ᐳᐸㅣ',
   'ooo': 'òŏôǒöőõȯōȍ',
+  'German': 'Ä,ja,nein,ö,Ü,sch,Schnitzel,Bier,ß',
   'SPACE': "_",
   'XXX': 'xX',
   'Kannada': 'ಠಉನಊಝಏೡಖತ',
