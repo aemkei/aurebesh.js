@@ -11,7 +11,7 @@ function aurebesh(alphabet) {
     alphabet = alphabet.split(separator);
   }
 
-  var invalid = alphabet.filter(char => {
+  var invalid = alphabet.filter(function(char){
     try {
       eval(`${char} = 1`);
     } catch (e) {
@@ -23,7 +23,7 @@ function aurebesh(alphabet) {
     return `Invalid identifier name: ${invalid}. <br>Read more here: https://mathiasbynens.be/notes/javascript-identifiers`
   }
 
-  alphabet = alphabet.filter((char, index) => {
+  alphabet = alphabet.filter(function(char, index) {
     return index <= alphabet.indexOf(char);
   });
 
@@ -31,8 +31,8 @@ function aurebesh(alphabet) {
   while (alphabet.length < 9) {
     var length = alphabet.length;
 
-    alphabet.forEach(a => {
-      alphabet.forEach(b => {
+    alphabet.forEach(function(a) {
+      alphabet.forEach(function(b) {
         if (alphabet.indexOf(a + b) == -1){
           alphabet.push(a+b);
         }
@@ -40,7 +40,9 @@ function aurebesh(alphabet) {
     });
   }
 
-  code = code.replace(/[A-Z]/g, char => alphabet[char.charCodeAt(0) - 65]);
+  code = code.replace(/[A-Z]/g, function(char){
+    return alphabet[char.charCodeAt(0) - 65];
+  });
 
   return code;
 }
@@ -72,7 +74,7 @@ var alphabets = {
 
 var output = document.getElementById('output');
 
-Object.keys(alphabets).forEach(name => {
+Object.keys(alphabets).forEach(function(name) {
 
   var alphabet = alphabets[name],
     translation = aurebesh(alphabet);
