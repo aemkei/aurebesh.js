@@ -83,9 +83,8 @@ Object.keys(alphabets).forEach(name => {
 var input = document.getElementById('your-input'),
   output = document.getElementById('your-output');
 
-input.contentEditable = true;
 input.addEventListener('keyup', function() {
-  var value = this.textContent;
+  var value = this.value;
   output.innerHTML = aurebesh(value);
   document.location.hash = escape(value);
 });
@@ -93,6 +92,6 @@ input.addEventListener('keyup', function() {
 var hash = document.location.hash;
 if (hash) {
   var value = unescape(hash.slice(1));
-  input.textContent = value;
+  input.value = value;
   output.innerHTML = aurebesh(value);
 }

@@ -14,6 +14,7 @@ blockquote,
 em,
 strong,
 #globe,
+input,
 code {
   font-size: 16px;
   line-height: 20px;
@@ -291,8 +292,19 @@ p {
 #output article #your-input.alphabet {
   color: #0cf;
   border: 1px solid #0cf;
+  background: transparent;
   padding: 4px 8px;
 }
+
+
+::-webkit-input-placeholder {
+  color: #666;
+}
+
+:-moz-placeholder {
+  color: #666;
+}
+
 
 #output article #your-input.alphabet:hover {
   border-color: #fff;
