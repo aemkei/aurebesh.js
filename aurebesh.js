@@ -1,46 +1,49 @@
 function aurebesh(alphabet) {
-  var code = 'A=\'\',B=!A+A,C=!B+A,D=A+{},E=B[A++],F=B[G=A],H=++G+A,I=D[G+H],B[I+=D[A]+(B.C+D)[A]+C[H]+E+F+B[G]+I+E+D[A]+F][I](C[A]+C[G]+B[H]+F+E+"(A)")``';
+  var code = 'A=\'\',B=!A+A,C=!B+A,D=A+{},E=B[A++],' +
+    'F=B[G=A],H=++G+A,I=D[G+H],B[I+=D[A]+(B.C+D)[A]' +
+    '+C[H]+E+F+B[G]+I+E+D[A]+F][I](C[A]+C[G]+B[H]+F+E+"(A)")``';
 
   if (!alphabet || !alphabet.length) {
     return 'Please enter at least one character.';
   }
 
   if (typeof alphabet == 'string') {
-
     var separator = alphabet.indexOf(',') < 0 ? '' : ',';
     alphabet = alphabet.split(separator);
   }
 
-  var invalid = alphabet.filter(function(char){
+  var invalid = alphabet.filter(function(char) {
+    var valid = true;
+
     try {
       eval(`${char} = 1`);
     } catch (e) {
-      return true;
+      valid = false;
     }
+    return valid;
   });
 
   if (invalid.length) {
-    return `Invalid identifier name: ${invalid}. <br>Read more here: https://mathiasbynens.be/notes/javascript-identifiers`
+    return `Invalid identifier name: ${invalid}. <br>
+      Read more here:
+      https://mathiasbynens.be/notes/javascript-identifiers`;
   }
 
   alphabet = alphabet.filter(function(char, index) {
     return index <= alphabet.indexOf(char);
   });
 
-
   while (alphabet.length < 9) {
-    var length = alphabet.length;
-
     alphabet.forEach(function(a) {
       alphabet.forEach(function(b) {
-        if (alphabet.indexOf(a + b) == -1){
-          alphabet.push(a+b);
+        if (alphabet.indexOf(a + b) === -1) {
+          alphabet.push(a + b);
         }
       });
     });
   }
 
-  code = code.replace(/[A-Z]/g, function(char){
+  code = code.replace(/[A-Z]/g, function(char) {
     return alphabet[char.charCodeAt(0) - 65];
   });
 
@@ -62,7 +65,7 @@ var alphabets = {
   'ᐳㅣᐸ': 'ᐳᐸㅣ',
   'ooo': 'òŏôǒöőõȯōȍ',
   'Deutsch': 'Ä,ja,nein,ö,Ü,sch,Schnitzel,Bier,ß',
-  'SPACE': "_",
+  'SPACE': '_',
   'XXX': 'xX',
   'Kannada': 'ಠಉನಊಝಏೡಖತ',
   'Symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
@@ -70,24 +73,27 @@ var alphabets = {
   'ABC': 'ABCDEFGHI',
   'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
   'Slash': '〳'
-}
+};
 
 var output = document.getElementById('output');
 
 Object.keys(alphabets).forEach(function(name) {
-
   var alphabet = alphabets[name],
     translation = aurebesh(alphabet);
 
-  output.innerHTML += `<article><h3>${name}</h3><div class="alphabet">//&nbsp;${alphabet}</div><div>${translation}</div></article>`;
+  output.innerHTML += `<article>
+    <h3>${name}</h3>
+    <div class="alphabet">//&nbsp;${alphabet}</div>
+    <div>${translation}</div>
+    </article>`;
 });
 
 var input = document.getElementById('your-input'),
-  output = document.getElementById('your-output');
+  preview = document.getElementById('your-output');
 
 input.addEventListener('keyup', function() {
-  var value = this.value;
-  output.innerHTML = aurebesh(value);
+  var value = input.value;
+  preview.innerHTML = aurebesh(value);
   document.location.hash = escape(value);
 });
 
@@ -95,5 +101,5 @@ var hash = document.location.hash;
 if (hash) {
   var value = unescape(hash.slice(1));
   input.value = value;
-  output.innerHTML = aurebesh(value);
+  preview.innerHTML = aurebesh(value);
 }
