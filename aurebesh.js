@@ -20,7 +20,7 @@ function aurebesh(alphabet) {
     } catch (e) {
       valid = false;
     }
-    return valid;
+    return !valid;
   });
 
   if (invalid.length) {
