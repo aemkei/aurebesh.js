@@ -68,13 +68,9 @@ var alphabets = {
   'SPACE': '_',
   'XXX': 'xX',
   'Kannada': 'ಠಉನಊಝಏೡಖತ',
-  'Tifinagh': 'ⴼⵊⵏⵂⵗⵓⴻⵐⵜ',
-  'Vai': 'ꔀꕐꖠꔢꖈꖕꔈꔉꔁ',
-  'Ogham': 'ᚁᚆᚂᚇᚃᚈ',
   'Symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
   'Kanji': '㒓㒲㒳㒴㒵㒶㒷㒸㒺',
   'ABC': 'ABCDEFGHI',
-  'Solfège':'Do,Re,Mi,Fa,Sol,La,Ti',
   'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
   'Slash': '〳'
 };
