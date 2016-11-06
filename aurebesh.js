@@ -68,6 +68,7 @@ var alphabets = {
   'SPACE': '_',
   'Solfège': 'Do,Re,Mi,Fa,Sol,La,Si',
   'XXX': 'xX',
+  'Roman': 'IVXLCDM',
   'Kannada': 'ಠಉನಊಝಏೡಖತ',
   'Tifinagh': 'ⴼⵊⵏⵂⵗⵓⴻⵐⵜ',
   'Vai': 'ꔀꕐꖠꔢꖈꖕꔈꔉꔁ',
