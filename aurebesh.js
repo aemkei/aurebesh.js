@@ -66,7 +66,7 @@ var alphabets = {
   'ooo': 'òŏôǒöőõȯōȍ',
   'Deutsch': 'Ä,ja,nein,ö,Ü,sch,Schnitzel,Bier,ß',
   'SPACE': '_',
-  'Solfège': 'Do,Re,Mi,Fa,Sol,La,Ti',
+  'Solfège': 'Do,Re,Mi,Fa,Sol,La,Si',
   'XXX': 'xX',
   'Kannada': 'ಠಉನಊಝಏೡಖತ',
   'Tifinagh': 'ⴼⵊⵏⵂⵗⵓⴻⵐⵜ',
