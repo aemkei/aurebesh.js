@@ -77,7 +77,8 @@ var alphabets = {
   'Kanji': '㒓㒲㒳㒴㒵㒶㒷㒸㒺',
   'ABC': 'ABCDEFGHI',
   'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
-  'Slash': '〳'
+  'Slash': '〳',
+  'Filler': 'ㅤﾠ'
 };
 
 var output = document.getElementById('output');
