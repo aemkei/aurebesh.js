@@ -78,7 +78,7 @@ var alphabets = {
   'ABC': 'ABCDEFGHI',
   'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
   'Slash': '〳',
-  'Filler': 'ㅤﾠ'
+  'Filler': 'ﾠ,ﾠ‌,ﾠ‌‌,ﾠ‌‌‌,ﾠ‌‌‌‌,ﾠ‌‌‌‌‌,ﾠ‌‌‌‌‌‌,ﾠ‌‌‌‌‌‌‌'
 };
 
 var output = document.getElementById('output');
