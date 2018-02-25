@@ -1,7 +1,5 @@
 function aurebesh(alphabet) {
-  var code = 'A=\'\',B=!A+A,C=!B+A,D=A+{},E=B[A++],' +
-    'F=B[G=A],H=++G+A,I=D[G+H],B[I+=D[A]+(B.C+D)[A]' +
-    '+C[H]+E+F+B[G]+I+E+D[A]+F][I](C[A]+C[G]+B[H]+F+E+"(A)")()';
+  var code = "([,A,,,,B]=[]+{},[C,D,E,F,,G,H,I,,,J]=[!!A]+!A+A.A)[B+=A+J+I+C+D+E+B+C+A+D][B](G+H+F+D+C+'``')``";
 
   if (!alphabet || !alphabet.length) {
     return 'Please enter at least one character.';
@@ -51,8 +49,8 @@ function aurebesh(alphabet) {
 }
 
 var alphabets = {
-  'Aurebesh': 'ロコYㅣᗐΞΔᐳㅡ',
   'Katakana': 'アウセヌネハヘホミ',
+  'Aurebesh': 'ロコYㅣᗐΞΔᐳㅡ$',
   'Greek': 'πβεγμτφθλ',
   'Hangul': 'ᅺᅻᅼᅽᅾᅿᆀᆁᆂᆃ',
   'Thai': 'กวอซฝคงญฒ',
