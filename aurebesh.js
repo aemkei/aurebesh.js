@@ -64,6 +64,7 @@ var alphabets = {
   'Runes': 'ᚦᚢᚠᚻᛉᛊᛇᛟᛞ',
   'Diacritical Marks': 'ò́̂,o̖̔̕,o̞̟̠,ò́̂̃,o̖̗̔̕,o̡̞̟̠,o̡̢̞̟̠̣,o̖̗̘̙̔̕,ò́̂̃̄',
   'Arabic': 'غػؼؽؾؿـفق',
+  'Buginese': 'ᨆᨊᨎᨂᨇᨋᨏᨃᨅ',
   'ᐳㅣᐸ': 'ᐳᐸㅣ',
   'ooo': 'òŏôǒöőõȯōȍ',
   'Deutsch': 'Ä,ja,nein,ö,Ü,sch,Schnitzel,Bier,ß',
