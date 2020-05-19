@@ -82,6 +82,7 @@ var alphabets = {
   'Ogham': 'ᚁᚆᚂᚇᚃᚈ',
   'Symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
   'Kanji': '㒓㒲㒳㒴㒵㒶㒷㒸㒺',
+  'Hieroglyphs': '𓅂,𓂀,𓁄,𓊎,𓆣,𓊝,𓇎,𓏢,𓆗',
   'ABC': 'ABCDEFGHI',
   'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
   'Slash': '〳',
