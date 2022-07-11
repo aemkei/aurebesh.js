@@ -1,16 +1,15 @@
 //자='',바=!자+자,스=!바+자,크=자+{},립=바[자++],트=바[코=자],리=++코+자,아=크[코+리],바[아+=크[자]+(바.스+크)[자]+스[리]+립+트+바[코]+아+립+크[자]+트][아](스[자]+스[코]+바[리]+트+립+"('자바스크립트')")()
 
-
-
 const
 
-  EMPTY = '',               // empty string
-  TRUE = !EMPTY + EMPTY,    // "true"
-  FALSE = !TRUE + EMPTY,    // "false"
-  OBJECT = EMPTY + {},      // "[object Object]"
+  EMPTY = '',                   // empty string
+  UNDEFINED = EMPTY.EMPTY + EMPTY,  // undefined
+  TRUE = !EMPTY + EMPTY,        // "true"
+  FALSE = !TRUE + EMPTY,        // "false"
+  OBJECT = EMPTY + {},          // "[object Object]"
   SPACE = ' ',
   QUOTE = '"',
-  BACKSLASH = '"\\\\"',
+  BACKSLASH = '\\',
 
   // numbers
   ZERO = +EMPTY,
@@ -27,7 +26,7 @@ const
   T = TRUE[ZERO],             // "t" = "true"[0]
   R = TRUE[ONE],              // "r" = "true"[1]
   U = TRUE[TWO],              // "u" = "true"[2]
-  E = TRUE[FOUR],             // "e" = "true"[3]
+  E = TRUE[THREE],            // "e" = "true"[3]
 
   S = FALSE[THREE],           // "s" = "false"[3]
 
@@ -45,10 +44,6 @@ const
   JOIN = J + O + I + N,
   RETURN = R + E + T + U + R + N + SPACE; // @todo: may use eval(x="")
 
-const NUMBERS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT];
-
-console.log(NUMBERS);
-
 FUNCTION(
   FALSE[ONE] +              //  "a"
   FALSE[TWO] +              //  "l"
@@ -58,4 +53,5 @@ FUNCTION(
   "(ONE)"                   // "(1)"
 )()
 
+// shortcuts
 
