@@ -41,16 +41,13 @@ async function run(){
   let compressed = await minify(code, options);
   compressed = compressed.code.replace('const ', '');
   
-  let counter = 0;
+  const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVW"];
   const mapping = {};
   
-  compressed = compressed.replace(/[A-Z_]+/g, function(name){
-    
+  compressed = compressed.replace(/[A-Z_0-9]+/g, function(name){
     if (!mapping[name]) {
-      mapping[name] = `_${counter}`;
-      counter++;
+      mapping[name] = alphabet.shift()
     }
-    
     return mapping[name];
   })
   

@@ -1,11 +1,10 @@
 const EVAL = true.constructor.constructor;
-const SPACE = ' ';
-const RETURN = 'return' + SPACE;
+const RETURN = 'return ';
 const QUOTE = '"';
 Q = QUOTE;
 B = '\\';
 
-function convert(input) {
+function convert(input){ 
   let output = [...input]
     .map(c => `B${c.charCodeAt(0).toString(8)}`)
     .join('');

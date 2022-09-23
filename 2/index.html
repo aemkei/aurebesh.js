@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>aurebesh.js – Translate JavaScript to Other Writing Systems</title>
+    <meta name="description" content="Translate JavaScript to Other Writing Systems. Created by Martin Kleppe aka @aemkei.">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#222222" />
+    <meta property="og:title" content="aurebesh.js" />
+    <meta property="og:description" content="Translate JavaScript to other writing systems." />
+    <meta property="og:image" content="http://aem1k.com/aurebesh.js/preview-large.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@aemkei" />
+    <meta property="twitter:image" content="http://aem1k.com/aurebesh.js/preview-large.png" />
+    <link rel="author" href="https://plus.google.com/103747379090421872359/posts"/>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link href='../styles.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div id="container">
+
+      <h2 class="aurebesh">aurebesh.js</h2>
+      <h2>aurebesh.js - Translate JavaScript to other writing systems.</h2>
+
+      <p>
+        Type in a list of up to nine symbols in the input below.
+        Your symbols will then be used to generate a short piece of valid JavaScript that you can execute without any extra code.
+      </p>
+      <p>
+        * Created by Martin Kleppe aka <a href="https://twitter.com/aemkei">@aemkei</a>.
+        <br>
+        * More hacks and creative coding at <a href="http://aem1k.com/">aem1k.com</a>.
+      </p>
+      <div id="output">
+        <article id="input">
+          <h3>Your Alphabet:</h3>
+          <input id="your-input" class="alphabet" placeholder="YOUR_ALPHABET" />
+          <div id="your-output">↑ Edit "YOUR_ALPHABET" above.</div>
+        </article>
+
+        <p>
+          The underlying example here is just an `alert(1)` - but more advanced programs are possible, too. Usually, the output is less than 140 chars and perfect for Twitter. You can also share the URL which updates while typing.
+        </p>
+
+        <hr>
+
+        <h2>Examples</h2>
+
+        <p>
+          Here are some examples of real and imaginary writing systems. The first one <a href="http://starwars.wikia.com/wiki/Aurebesh">Aurebesh</a> is based on the most used alphabeth in the Star Wars galaxy.
+        </p>
+      </div>
+
+      <hr>
+
+      <h2>How it Works</h2>
+
+      <p>
+        Here is a formatted version of the ABC. Read it carefully and you will get the idea.
+      </p>
+
+      <pre>
+A = ''              // empty string
+B = !A + A          // "true"
+C = !B + A          // "false"
+D = A + {}          // "[object Object]"
+E = B[A++]          // "t" = "true"[0]
+F = B[G = A]        // "r" = "true"[1]
+H = ++G + A         // 2, 3
+I = D[G + H]        // "c"
+
+B[
+  I +=              // "<b>c</b>"
+    D[A] +          // "<b>o</b>" = "object"[0]
+    (B.C+D)[A] +    // "<b>n</b>" = "undefined"[1]
+    C[H] +          // "<b>s</b>" = "false"[3]
+    E +             // "<b>t</b>"
+    F +             // "<b>r</b>"
+    B[G] +          // "<b>u</b>" = "true"[2]
+    I +             // "<b>c</b>" = "[object]"[5]
+    E +             // "<b>t</b>"
+    D[A] +          // "<b>o</b>" = "[object]"[1]
+    F               // "<b>r</b>"
+][
+  I                 // "<b>constructor</b>"
+](
+  C[A] +            //  "<b>a</b>"
+  C[G] +            //  "<b>l</b>"
+  B[H] +            //  "<b>e</b>"
+  F +               //  "<b>r</b>"
+  E +               //  "<b>t</b>"
+  "(A)"             // "<b>(1)</b>"
+)()
+      </pre>
+
+      <hr>
+
+<pre id="logo">
+      <b>#</b>
+      <b>#</b>
+     <b>##</b>
+      <b>#</b> #
+   ## <b>#</b> #
+ ## # <b>#</b> # #
+# # # <b>#</b> ##
+# # # <b>#</b> # #
+# # # <b>#</b> #  #
+</pre>
+      20XX - Martin Kleppe
+
+    </div>
+    <script src="index.js"></script>
+
+  </body>
+</html>
