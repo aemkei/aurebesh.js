@@ -1,31 +1,29 @@
-const fs = require('fs');
-const path = require('path');
-const file = path.resolve(__dirname, 'core.js')
-const code = fs.readFileSync(file, 'utf8');
-
-const { minify } = require("terser");
-
-const minifyOptions = {
-  module: true,
-  compress: false,
-  mangle: false,
-  rename: {},
-};
-
 // input source to be converted
 const input = 'console.log("WORKS!")';
 
-// tha character map to use for the variables
-const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWX"];
+async function loadBootstrapCode() {
+  const fs = require('fs');
+  const path = require('path');
+  const { minify } = require("terser");
 
-// holds the mapping of single characters to original names
-const mapping = {};
+  const file = path.resolve(__dirname, 'core.js')
+  const code = fs.readFileSync(file, 'utf8');
 
-// main entry point
-async function main() {
+  const options = {
+    module: true,
+    compress: false,
+    mangle: false,
+    rename: {},
+  };
+
+  // tha character map to use for the variables
+  const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWX"];
+
+  // holds the mapping of single characters to original names
+  const mapping = {};
 
   // load and minify the bootstrap code from core.js
-  let bootstrap = (await minify(code, minifyOptions)).code;
+  let bootstrap = (await minify(code, options)).code;
 
   // remove all 'const' overhead from the orignal code
   bootstrap = bootstrap.replace('const ', '');
@@ -38,6 +36,16 @@ async function main() {
     }
     return mapping[name];
   });
+
+  console.log({bootstrap, mapping});
+
+  return {bootstrap, mapping};
+}
+
+// main entry point
+async function main() {
+
+  const {bootstrap, mapping} = await loadBootstrapCode()
 
   // shortcuts to mapping characters
   const { BACKSLASH, CONSTRUCTOR, JOIN, QUOTE, RETURN } = mapping;
