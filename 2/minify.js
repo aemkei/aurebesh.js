@@ -38,6 +38,13 @@ async function main() {
   // prepend compressed bootstrap code with output
   output = bootstrap + output;
 
+  // replace original chars with ciphers
+  const alphabet = Object.values(mapping);
+  const ciphers = "ΔѰ_ΞΠHIMΦΧΨΩWYΘЖФVШAUѪѦѲTX";
+  output = output.replace(/[A-Z]/g, char => {
+    return ciphers[alphabet.indexOf(char)];
+  });
+
   // call the obfuscated code
   console.log(output);
   Function(output)();
