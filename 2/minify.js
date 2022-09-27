@@ -1,5 +1,5 @@
 // input source to be converted
-const input = 'console.log("WORKS!")';
+const input = 'alert("CYPHER")';
 
 // main entry point
 async function main() {
@@ -10,10 +10,15 @@ async function main() {
   // shortcuts to mapping characters
   const { BACKSLASH, CONSTRUCTOR, JOIN, QUOTE, RETURN } = mapping;
 
-  // convert to octal sequence (backslash + char code)
+  // convert characters to octal sequence (backslash + char code)
   let output = [...input]
     .map(c => `${BACKSLASH}${c.charCodeAt(0).toString(8)}`)
     .join('');
+
+  // replace digits with substitute 
+  output = output.replace(/[0-7]/g, digit => {
+    return mapping["_" + digit];
+  });
 
   // join characters with '+' sign
   output = `[..."${output}"][${JOIN}]('+')`;
