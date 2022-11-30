@@ -1,4 +1,4 @@
-async function loadBootstrapCode() {
+async function load() {
   const fs = require('fs');
   const path = require('path');
   const { minify } = require("terser");
@@ -10,7 +10,7 @@ async function loadBootstrapCode() {
     module: true,
     compress: false,
     mangle: false,
-    rename: {},
+    rename: {}
   };
 
   // tha character map to use for the variables
@@ -34,9 +34,7 @@ async function loadBootstrapCode() {
     return mapping[name];
   });
 
-  console.log({bootstrap, mapping});
-
   return {bootstrap, mapping};
 }
 
-module.exports = loadBootstrapCode;
+module.exports = load;

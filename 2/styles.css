@@ -1,0 +1,326 @@
+{
+  word-wrap: break-word;
+}
+.markdown,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+blockquote,
+em,
+strong,
+#globe,
+input,
+textarea,
+code {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Inconsolata', Monaco, Consolas, "Lucida Console", monospace;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+blockquote,
+ol,
+ul,
+li,
+p,
+section,
+header,
+footer {
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+h1,
+p,
+ul,
+ol,
+pre,
+blockquote {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1 {
+  position: relative;
+  display: inline-block;
+  display: table-cell;
+  padding: 20px 0 40px;
+  margin: 0;
+  overflow: hidden;
+}
+h1:after {
+  content: "====================================================================================================";
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+h1 + * {
+  margin-top: 0;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  content: "## ";
+  display: inline;
+}
+h3:before {
+  content: "### ";
+}
+h4:before {
+  content: "#### ";
+}
+h5:before {
+  content: "##### ";
+}
+h6:before {
+  content: "###### ";
+}
+li {
+  position: relative;
+  display: block;
+  padding-left: 34px;
+  padding-left: 4ch;
+}
+li:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+ul > li:after {
+  content: "*";
+}
+ol {
+  counter-reset: ol;
+}
+ol > li:after {
+  content: counter(ol) ".";
+  counter-increment: ol;
+}
+pre {
+/*  margin-left: 34px;
+  padding-left: 4ch;*/
+}
+blockquote {
+  position: relative;
+  padding-left: 17px;
+  padding-left: 2ch;
+  overflow: hidden;
+}
+blockquote:after {
+  content: ">\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>";
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+strong:before,
+strong:after {
+  content: "__";
+  display: inline;
+}
+em:before,
+em:after {
+  content: "*";
+  display: inline;
+}
+a {
+  text-decoration: none;
+}
+a:before {
+  content: "[";
+  display: inline;
+  color: #999;
+}
+a:after {
+/*  content: "](" attr(href) ")";*/
+  content: "]";
+  display: inline;
+  color: #999;
+}
+code {
+  font-weight: 100;
+}
+code:before,
+code:after {
+  content: "`";
+  display: inline;
+}
+pre code:before,
+pre code:after {
+  content: none;
+}
+hr {
+  position: relative;
+  height: 20px;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  border: 0;
+  margin-bottom: 20px;
+}
+hr:after {
+  content: "----------------------------------------------------------------------------------------------------";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  word-wrap: break-word;
+}
+@-moz-document url-prefix() {
+  h1 {
+    display: block;
+  }
+}
+.markdown-ones ol > li:after {
+  content: "1.";
+}
+
+html, body {
+  background: #222;
+  color: #FFF;
+  font-family: 'Inconsolata', Monaco, Consolas, "Lucida Console", monospace;
+
+}
+
+* {
+  font-weight: normal;
+}
+
+h1 {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+h2 {
+  color: #FF00FF;
+}
+
+h3 {
+  color: #00FF66;
+}
+
+pre i {
+  color: #999;
+  font-style: normal;
+}
+
+pre b {
+  color: yellow;
+}
+
+a {
+   color: #00CCFF;
+}
+
+
+@font-face {
+  font-family: 'Aurebesh-Normal';
+    src: url('./fonts/Aurebesh-Normal.ttf.woff') format('woff'),
+    url('./fonts/Aurebesh-Normal.ttf.svg#Aurebesh-Normal') format('svg'),
+    url('./fonts/Aurebesh-Normal.ttf.eot'),
+    url('./fonts/Aurebesh-Normal.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.aurebesh {
+  text-transform: none;
+  font-family: 'Aurebesh-Normal';
+}
+
+pre#logo {
+  line-height: 10px
+}
+
+#container {
+  padding: 40px;
+  border-right: 1px solid #666;
+  border-left: 1px solid #666;
+  background: #090909;
+}
+
+#output article {
+  word-wrap: break-word;
+  word-break: break-all;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1em 2em 1em 0;
+  line-height: 1.5em;
+}
+
+input,
+textarea,
+#your-output,
+p {
+  display: block;
+  max-width: 32em;
+}
+
+#output article textarea,
+#output article .alphabet {
+  color: #666;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+#output article textarea {
+  height: 5em;
+}
+
+#output article#input {
+  display: block;
+}
+
+#output article textarea,
+#output article #your-input.alphabet {
+  color: #0cf;
+  border: 1px solid #0cf;
+  background: transparent;
+  padding: 4px 8px;
+}
+
+
+::-webkit-input-placeholder {
+  color: #666;
+}
+
+:-moz-placeholder {
+  color: #666;
+}
+
+
+#output article #your-input.alphabet:hover {
+  border-color: #fff;
+}
+
+#your-input:before {
+  display: inline;
+}

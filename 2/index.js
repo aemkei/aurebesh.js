@@ -1,4 +1,4 @@
-function aurebesh(alphabet) {
+function aurebesh(alphabet, code) {
   var code = `[A,B,C,D,E,,,,,F,,,G,,,,H,,,,,I,,J,K,L]=($='"\\\\')+!!$+!$+$.$+[]+{};M=+!I,N=+!!I,O=N+N,P=O+N,Q=O+O,R=P+O,S=P+P,T=Q+P,U=L+I+G+F+C+D+E+L+C+I+D,U=U[U][U],V=J+I+H+G,W=D+K+C+E+D+G+" ";U("console.log('works')")()`;
 
   if (!alphabet || !alphabet.length) {
@@ -6,8 +6,11 @@ function aurebesh(alphabet) {
   }
 
   if (typeof alphabet == 'string') {
-    var separator = alphabet.indexOf(',') < 0 ? '' : ',';
-    alphabet = alphabet.split(separator);
+    if (alphabet.indexOf(',') > 0) {
+      alphabet = alphabet.split(',');
+    } else {
+      alphabet = [... alphabet];
+    }
   }
 
   var invalid = alphabet.filter(function(char) {
@@ -31,19 +34,23 @@ function aurebesh(alphabet) {
     return index <= alphabet.indexOf(char);
   });
 
-  while (alphabet.length < 23) {
+  while (alphabet.length < 26) {
     alphabet.forEach(function(a) {
-      if (alphabet.length > 23) {
+      if (alphabet.length >= 26) {
         return;
       }
       alphabet.forEach(function(b) {
         if (alphabet.indexOf(a + b) === -1) {
+          if (alphabet.length >= 26) {
+            return;
+          }
           alphabet.push(a + b);
         }
       });
     });
   }
-  console.log(alphabet.length);
+
+  console.log(alphabet.length, alphabet);
 
   code = code.replace(/[A-Z]/g, function(char) {
     return alphabet[char.charCodeAt(0) - 65];
@@ -52,76 +59,27 @@ function aurebesh(alphabet) {
   return code;
 }
 
-var alphabets = {
-  'Aurebesh': 'ロコYㅣᗐΞΔᐳㅡ',
-  'Katakana': 'アウセヌネハヘホミ',
-  'Greek': 'πβεγμτφθλ',
-  'Hangul': 'ᅺᅻᅼᅽᅾᅿᆀᆁᆂᆃ',
-  'Thai': 'กวอซฝคงญฒ',
-  'Cyrillic': 'БДИЖЩЗЛЮФ',
-  'Gurmukhi': 'ਗਨਹਤਕੲਲੜਵ',
-  'Hebrew': 'אבגדהוחטכ',
-  'Javanese': 'ꦊꦄꦌꦍꦎꦏꦐꦑꦒ',
-  'Yi': 'ꆇꉄꉦꊗꀻꃋꆚꋕꐍ',
-  'Telugu': 'జ్ఞా,తె,లు,గు,ణి,తా,ము,రా,బ,కి',
-  'Runes': 'ᚦᚢᚠᚻᛉᛊᛇᛟᛞ',
-  'Carian': '𐊾,𐋂,𐊼,𐊧,𐋀,𐊫,𐋇,𐊦,𐊣',
-  'Diacritical Marks': 'ò́̂,o̖̔̕,o̞̟̠,ò́̂̃,o̖̗̔̕,o̡̞̟̠,o̡̢̞̟̠̣,o̖̗̘̙̔̕,ò́̂̃̄',
-  'Arabic': 'غػؼؽؾؿـفق',
-  'Buginese': 'ᨆᨊᨎᨂᨇᨋᨏᨃᨅ',
-  'ᐳㅣᐸ': 'ᐳᐸㅣ',
-  'ooo': 'òŏôǒöőõȯōȍ',
-  'reserved': '𝖻𝗋𝖾𝖺𝗄,𝗍𝗁𝗋𝗈𝗐,𝖼𝖺𝗍𝖼𝗁,𝖼𝗈𝗇𝗌𝗍,𝗏𝖺𝗋,𝗋𝖾𝗍𝗎𝗋𝗇,𝖽𝖾𝖿𝖺𝗎𝗅𝗍,𝗍𝗁𝗂𝗌,𝗏𝗈𝗂𝖽',
-  'Deutsch': 'Ä,ja,nein,ö,Ü,sch,Schnitzel,Bier,ß',
-  'SPACE': '_',
-  'Solfège': 'Do,Re,Mi,Fa,Sol,La,Si',
-  'XXX': 'xX',
-  'Roman': 'IVXLCDM',
-  'Kannada': 'ಠಉನಊಝಏೡಖತ',
-  'Icelandic': 'ÞÐÓÆÝHÉTÍ',
-  'Tifinagh': 'ⴼⵊⵏⵂⵗⵓⴻⵐⵜ',
-  'Vai': 'ꔀꕐꖠꔢꖈꖕꔈꔉꔁ',
-  'Ogham': 'ᚁᚆᚂᚇᚃᚈ',
-  'Symbols': '_ʽːᆢ〱〳ㅡㅣㆍ',
-  'Kanji': '㒓㒲㒳㒴㒵㒶㒷㒸㒺',
-  'Hieroglyphs': '𓅂,𓂀,𓁄,𓊎,𓆣,𓊝,𓇎,𓏢,𓆗',
-  'Linear B': '𐂃,𐃨,𐂝,𐃌,𐁉,𐃵,𐂓,𐀜,𐂠',
-  'Devanagari': 'क,ख,ग,घ,ङ,च,छ,ज,झ',
-  'ABC': 'ABCDEFGHI',
-  'X Variables': 'ⵝ,Ⲭ,ᚷ,ꓫ,𐊐,𐊴,Х,Χ,X',
-  'Emoticons': ['ó‿ó', 'σ_σ', 'δﺡό', 'סּ_סּ', 'ಠ_ಠ', 'ö‿o', 'oﺡo', 'σ_o', 'ಠ‿ಠ'],
-  'Slash': '〳',
-  'Dots': 'ⵗ',
-  'Filler': 'ﾠ,ﾠ‌,ﾠ‌‌,ﾠ‌‌‌,ﾠ‌‌‌‌,ﾠ‌‌‌‌‌,ﾠ‌‌‌‌‌‌,ﾠ‌‌‌‌‌‌‌',
-  'Cree': 'ᐁᐃᐊᐅᐄᐋᐆᐗᐒ',
-  'Hangul Numbers': 'ﾠ7,ﾠ2,ﾠ4,ﾠ9,ﾠ1,ﾠ3,ﾠ5,ﾠ8,ﾠ6'
-};
-
-var output = document.getElementById('output');
-
-Object.keys(alphabets).forEach(function(name) {
-  var alphabet = alphabets[name],
-    translation = aurebesh(alphabet);
-
-  output.innerHTML += `<article>
-    <h3>${name}</h3>
-    <div class="alphabet">//&nbsp;${alphabet}</div>
-    <div>${translation}</div>
-    </article>`;
-});
-
-var input = document.getElementById('your-input'),
-  preview = document.getElementById('your-output');
+var $alphabet = document.getElementById('your-input'),
+  $code = document.getElementById('your-code'),
+  $preview = document.getElementById('your-output');
 
 input.addEventListener('keyup', function() {
-  var value = input.value;
-  preview.innerHTML = aurebesh(value);
-  document.location.hash = escape(value);
+  var alphabet = $alphabet.value;
+  var code = $code.value;
+  $preview.innerHTML = aurebesh(alphabet, code);
+
+  if (alphabet || code) {
+    document.location.hash = escape(JSON.stringify({alphabet, code}));
+  } else {
+    document.location.hash = '';
+  }
+
 });
 
 var hash = document.location.hash;
 if (hash) {
-  var value = unescape(hash.slice(1));
-  input.value = value;
-  preview.innerHTML = aurebesh(value);
+  const {alphabet, code} = JSON.parse(unescape(hash.slice(1)));
+  $alphabet.value = alphabet;
+  $code.value = code;
+  $preview.innerHTML = aurebesh(alphabet, code);
 }

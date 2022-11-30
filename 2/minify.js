@@ -1,11 +1,34 @@
 // input source to be converted
 const input = 'alert("CYPHER")';
+const ciphers = "𐊣𐊦𐊧𐊨𐊭𐊳𐊵𐊶𐊷𐊸𐊺𐊻𐊼𐊽𐊾𐊿𐋀𐋁𐋂𐊫𐋄𐋅𐋇𐋈𐋎𐋐";
+
+// generate bootstrap code from source
+// only needed for local scripts
+// for browser add the output to bootstrap.js
+async function loadBootstrap(){
+  const load = require('./bootstrap/load.js');
+  const config = await load();
+
+  bootstrap = config.bootstrap;
+  mapping = config.mapping;
+
+  console.log(`
+    // place this into bootstrap.js
+    const bootstrap = ${JSON.stringify(bootstrap)};
+    const mapping = ${
+      JSON.stringify(mapping).replace(/"([^"]+)":/g, '$1:')
+    };
+  `);
+}
 
 // main entry point
-async function main() {
+async function convert(input, ciphers) {
 
-  const loadBootstrapCode = require('./load-bootstrap.js');
-  const {bootstrap, mapping} = await loadBootstrapCode()
+  ciphers = [... ciphers];
+
+  if (!globalThis.bootstrap) {
+    await loadBootstrap();
+  }
 
   // shortcuts to mapping characters
   const { BACKSLASH, CONSTRUCTOR, JOIN, QUOTE, RETURN } = mapping;
@@ -40,14 +63,14 @@ async function main() {
 
   // replace original chars with ciphers
   const alphabet = Object.values(mapping);
-  const ciphers = "ΔѰ_ΞΠHIMΦΧΨΩWYΘЖФVШAUѪѦѲTX";
+  
   output = output.replace(/[A-Z]/g, char => {
     return ciphers[alphabet.indexOf(char)];
   });
 
   // call the obfuscated code
   console.log(output);
-  Function(output)();
+  // Function(output)();
 }
 
-main();
+convert(input, ciphers);
