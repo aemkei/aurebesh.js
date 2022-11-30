@@ -21,7 +21,7 @@
       <h2>Translate any JavaScript code to other writing systems.</h2>
 
       <p>
-        Type in a list of up to 26 unique symbols in the input below.
+        Type in a list of 9 up to 26 unique symbols in the input below.
         Your symbols will then be used to convert the provided source to cryptic but valid JavaScript that you can execute without any extra code.
       </p>
       <p>
@@ -35,7 +35,8 @@
           <input id="your-input" class="alphabet" placeholder="Enter 26 unique symbols" value="𐊣𐊦𐊧𐊨𐊭𐊳𐊵𐊶𐊷𐊸𐊺𐊻𐊼𐊽𐊾𐊿𐋀𐋁𐋂𐊫𐋄𐋅𐋇𐋈𐋎𐋐"/>
           <h3>Your Code:</h3>
           <textarea id="your-code" placeholder="Enter your JavaScript source code">alert(1)</textarea>
-          <div id="your-output">↑ Edit "YOUR_ALPHABET" and the code above.</div>
+          <p>// cryptic.js</p>
+          <div id="your-output">↑ Edit the alphabet and the code above.</div>
         </article>
 
         <p>
@@ -58,6 +59,8 @@
       20XX - Martin Kleppe
 
     </div>
+    <script src="bootstrap.js"></script>
+    <script src="minify.js"></script>
     <script src="index.js"></script>
 
   </body>

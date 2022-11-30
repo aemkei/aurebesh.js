@@ -1,16 +1,9 @@
 function aurebesh(alphabet, code) {
-  var code = `[A,B,C,D,E,,,,,F,,,G,,,,H,,,,,I,,J,K,L]=($='"\\\\')+!!$+!$+$.$+[]+{};M=+!I,N=+!!I,O=N+N,P=O+N,Q=O+O,R=P+O,S=P+P,T=Q+P,U=L+I+G+F+C+D+E+L+C+I+D,U=U[U][U],V=J+I+H+G,W=D+K+C+E+D+G+" ";U("console.log('works')")()`;
 
-  if (!alphabet || !alphabet.length) {
-    return 'Please enter at least one character.';
-  }
-
-  if (typeof alphabet == 'string') {
-    if (alphabet.indexOf(',') > 0) {
-      alphabet = alphabet.split(',');
-    } else {
-      alphabet = [... alphabet];
-    }
+  if (alphabet.indexOf(',') > 0) {
+    alphabet = alphabet.split(',');
+  } else {
+    alphabet = [... alphabet];
   }
 
   var invalid = alphabet.filter(function(char) {
@@ -34,6 +27,10 @@ function aurebesh(alphabet, code) {
     return index <= alphabet.indexOf(char);
   });
 
+  if (alphabet.length < 9) {
+    return 'Please enter at least nine different symbols.';
+  }
+
   while (alphabet.length < 26) {
     alphabet.forEach(function(a) {
       if (alphabet.length >= 26) {
@@ -50,13 +47,7 @@ function aurebesh(alphabet, code) {
     });
   }
 
-  console.log(alphabet.length, alphabet);
-
-  code = code.replace(/[A-Z]/g, function(char) {
-    return alphabet[char.charCodeAt(0) - 65];
-  });
-
-  return code;
+  return convert(alphabet, code);
 }
 
 var $alphabet = document.getElementById('your-input'),
@@ -66,20 +57,33 @@ var $alphabet = document.getElementById('your-input'),
 input.addEventListener('keyup', function() {
   var alphabet = $alphabet.value;
   var code = $code.value;
-  $preview.innerHTML = aurebesh(alphabet, code);
+  $preview.innerHTML =  aurebesh(alphabet, code);
 
   if (alphabet || code) {
     document.location.hash = escape(JSON.stringify({alphabet, code}));
   } else {
     document.location.hash = '';
   }
-
 });
 
 var hash = document.location.hash;
+
 if (hash) {
-  const {alphabet, code} = JSON.parse(unescape(hash.slice(1)));
-  $alphabet.value = alphabet;
-  $code.value = code;
-  $preview.innerHTML = aurebesh(alphabet, code);
+  hash = JSON.parse(unescape(hash.slice(1)))
+} else {
+  hash = {};
 }
+
+if (hash.alphabet){
+  $alphabet.value = hash.alphabet;
+} else {
+  hash.alphabet = $alphabet.value
+}
+
+if (hash.code) {
+  $code.value = hash.code;
+} else {
+  hash.code = $code.value;
+}
+
+$preview.innerHTML = aurebesh(hash.alphabet, hash.code);
