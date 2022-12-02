@@ -1,10 +1,6 @@
-function aurebesh(alphabet, code) {
+function obfuscate(alphabet, code) {
 
-  if (alphabet.indexOf(',') > 0) {
-    alphabet = alphabet.split(',');
-  } else {
-    alphabet = [... alphabet];
-  }
+  alphabet = [... alphabet];
 
   var invalid = alphabet.filter(function(char) {
     var valid = true;
@@ -57,7 +53,7 @@ var $alphabet = document.getElementById('your-input'),
 input.addEventListener('keyup', function() {
   var alphabet = $alphabet.value;
   var code = $code.value;
-  $preview.innerHTML =  aurebesh(alphabet, code);
+  $preview.innerHTML =  obfuscate(alphabet, code);
 
   if (alphabet || code) {
     document.location.hash = escape(JSON.stringify({alphabet, code}));
@@ -86,4 +82,4 @@ if (hash.code) {
   hash.code = $code.value;
 }
 
-$preview.innerHTML = aurebesh(hash.alphabet, hash.code);
+$preview.innerHTML = obfuscate(hash.alphabet, hash.code);
